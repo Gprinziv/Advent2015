@@ -1,4 +1,4 @@
-def findpass(password):
+def passgen(password):
   newpass = [ord(char) for char in oldpass]
 
   ptr = 0
@@ -45,6 +45,6 @@ def findpass(password):
     #If one match, optimal tail configuration is ######11  
 
 oldpass = "cqjxjnds"
-newpass = findpass(oldpass)
+newpass = passgen(oldpass)
 
 print(newpass)
