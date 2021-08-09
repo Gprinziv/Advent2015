@@ -11,7 +11,6 @@ def passgen(password):
       break
     ptr += 1
     
-
   if newpass[-5] < newpass[-4]:
     newpass[-5] += 1
   elif newpass[-5] == newpass[-4]:
