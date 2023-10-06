@@ -1,39 +1,18 @@
 import re
 
-with open("JSON") as json:
-  rawdata = json.read()
-
-#Part 1
-data = re.split('{|}|:|,|\[|\]', rawdata)
-total = 0
-for item in data:
-  try:
-    total += int(item)
-  except:
-    pass
-print(total)
-
-#Part 2
-ptr = 0
-brackets = []
-while True:
-  if rawdata[ptr] == "{":
-    brackets.append(ptr)
-  elif rawdata[ptr] == "}":
-    openBracket = brackets.pop()
-    if ":\"red\"" in rawdata[openBracket:ptr]:
-      rawdata = rawdata[:openBracket] + rawdata[ptr:]
-      ptr = openBracket
-
-  ptr += 1
-  if ptr >= len(rawdata):
-    break
-
-data = re.split('{|}|:|,|\[|\]', rawdata)
-total = 0
-for item in data:
-  try:
-    total += int(item)
-  except:
-    pass
-print(total)
+with open("input") as f:
+  theSue = {}
+  for line in f.readlines():
+    theSue[line.split(":")[0]] = int(line.split(":")[1])
+  
+for sue in open("sues").readlines():
+  factors = re.split(",|:", sue.strip("\n"))
+  flag = True
+  print(factors[0])
+  for i in range(1, len(factors), 2):
+    print(f"{factors[i]}: {factors[i+1][1:]} (expected: {theSue[factors[i][1:]]})")
+    if theSue[factors[i][1:]] != factors[i+1][1:]:
+      print("false!")
+      flag = False
+    if flag == True:
+      print(factors[0])
