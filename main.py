@@ -1,4 +1,8 @@
-with open("input") as f:
-    containers = [int(x) for x in f.readlines()]
-liters = 150
+def main():
+    with open("input") as f:
+        pass
 
+    return 0
+    
+
+main()
