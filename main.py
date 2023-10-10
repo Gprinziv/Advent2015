@@ -1,6 +1,5 @@
 def main():
-  with open("input") as f:
-    pass  
+  i = 0
 
 
 main()
